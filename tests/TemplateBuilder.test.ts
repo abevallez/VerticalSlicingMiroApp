@@ -1,6 +1,5 @@
 import { mockDeep } from 'jest-mock-extended';
 import { TemplateBuilder } from '../src/TemplateBuilder';
-import { miro } from '../typings/miro'
 
 describe('tests TemplateBuilder', () => {
     test('Builder should create a empty sticker', () => {

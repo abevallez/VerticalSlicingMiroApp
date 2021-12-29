@@ -1,9 +1,7 @@
-import { SDK } from "../typings/miro";
-
 export class TemplateBuilder {
-    protected miroSDK: SDK.Root
+    protected miroSDK: typeof miro
 
-    constructor(miroSDK: SDK.Root) {
+    constructor(miroSDK: typeof miro) {
         this.miroSDK = miroSDK
     }
 
