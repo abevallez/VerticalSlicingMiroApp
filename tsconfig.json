@@ -16,6 +16,6 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src", "typings"],
-  "exclude": ["node_modules", "tests"]
+  "include": ["src", "typings", "tests"],
+  "exclude": ["node_modules"]
 }

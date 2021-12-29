@@ -1,11 +1,7 @@
 /**
  * Start here
  */
-declare global {
-  var miro: SDK.Root;
-}
-
-export {};
+export declare const miro: SDK.Root;
 
 /**
  * Here you will find a full reference to all publicly available methods in
@@ -21,7 +17,7 @@ declare namespace SDK {
    * @meta-title The `window.miro` Object
    * @category General
    */
-  interface Root {
+  export interface Root {
     /**
      * Callback executed when everything is loaded and ready to use SDK methods.
      * @param callback Function to be executed
