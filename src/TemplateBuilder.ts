@@ -5,10 +5,19 @@ export class TemplateBuilder {
         this.miroSDK = miroSDK
     }
 
-    public async build(){
-        return await this.miroSDK.board.widgets.create({
+    public build(){
+
+        this.miroSDK.board.widgets.create({
             type: 'sticker',
-            text: 'Hello, World!',
+            text: 'Activities',
+          });
+        this.miroSDK.board.widgets.create({
+            type: 'sticker',
+            text: 'Sticker 2',
+          });
+        this.miroSDK.board.widgets.create({
+            type: 'sticker',
+            text: 'Sticker 3',
           });
     }
 }
