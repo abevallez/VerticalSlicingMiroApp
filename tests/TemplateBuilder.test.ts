@@ -15,33 +15,22 @@ describe('tests TemplateBuilder', () => {
 
     test('Should create a row of three stickers', () => {
         templateBuilder.build()
-        expect(miroSDKMock.board.widgets.create).toBeCalledTimes(3)
-    })
+        const widgetsExpected = [
+            {
+                type: 'STICKER',
+                text: 'Activities',
+            },
+            {
+                type: 'STICKER',
+                text: 'Complexities',
+            },
+            {
+                type: 'STICKER',
+                text: 'Variations',
+            }
+        ]
 
-    test('Should create a sticker with text Activities', () => {
-        templateBuilder.build()
-        const stickerParams = {
-            type: 'sticker',
-            text: 'Activities',
-          }
-        expect(miroSDKMock.board.widgets.create).toBeCalledWith(stickerParams)
-    })
-
-    test('Should create a sticker with text Complexities', () => {
-        templateBuilder.build()
-        const stickerParams = {
-            type: 'sticker',
-            text: 'Complexities',
-          }
-        expect(miroSDKMock.board.widgets.create).toBeCalledWith(stickerParams)
-    })
-
-    test('Should create a sticker with text Variations', () => {
-        templateBuilder.build()
-        const stickerParams = {
-            type: 'sticker',
-            text: 'Variations',
-          }
-        expect(miroSDKMock.board.widgets.create).toBeCalledWith(stickerParams)
+        expect(miroSDKMock.board.widgets.create).toBeCalledTimes(1)
+        expect(miroSDKMock.board.widgets.create).toBeCalledWith(widgetsExpected)
     })
 });
