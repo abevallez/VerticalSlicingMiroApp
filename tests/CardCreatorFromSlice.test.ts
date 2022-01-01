@@ -31,14 +31,6 @@ describe('test CardCreatorFromSlice', () => {
         expect(miroSDKMock.board.widgets.create).toBeCalledTimes(0)
     })
 
-    test('Should dont create a card when no sticker was selected', async () => {
-        const cardCreator: CardCreatorFromSlice = new CardCreatorFromSlice(miroSDKMock)
-        miroSDKMock.board.selection.get.mockResolvedValue([])
-
-        await cardCreator.createCard()
-        expect(miroSDKMock.board.widgets.create).toBeCalledTimes(0)
-    })
-
     test('Should show a notification when no sticker was selected', async () => {
         const cardCreator: CardCreatorFromSlice = new CardCreatorFromSlice(miroSDKMock)
         miroSDKMock.board.selection.get.mockResolvedValue([])
