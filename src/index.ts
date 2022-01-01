@@ -1,6 +1,6 @@
 import toolbarIcon from './assets/toolbaricon.svg?raw';
 import libraryIcon from './assets/libraryicon.svg?raw';
-import { Template } from './Template';
+import { TemplateBuilder } from './TemplateBuilder';
 import { CardCreatorFromSlice } from './CardCreatorFromSlice';
 
 miro.onReady(() => {
@@ -11,8 +11,8 @@ miro.onReady(() => {
         toolbarSvgIcon: toolbarIcon,
         librarySvgIcon: libraryIcon,
         async onClick() {
-          const template: Template= new Template(miro)
-          template.build()
+          const templateBuilder: TemplateBuilder= new TemplateBuilder(miro)
+          templateBuilder.build()
         },
       },
       bottomBar: {

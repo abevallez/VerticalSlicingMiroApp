@@ -1514,7 +1514,7 @@ declare namespace SDK {
   /**
    * @category Widgets Manipulation
    */
-  export interface IStickerWidget extends IWidget {
+  interface IStickerWidget extends IWidget {
     type: 'STICKER';
     x: number;
     y: number;
