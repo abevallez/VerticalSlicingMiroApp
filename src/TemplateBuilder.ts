@@ -12,17 +12,24 @@ export class TemplateBuilder {
 
     public build(){
         let sticker
-        for (const i in this.board.columnsTitles) {
-            sticker = this.createSticker(this.board.columnsTitles[i])
+        const coordinates: { x: number, y: number}= {
+            x: 0,
+            y: 0
+        }
+        for (const i in this.board.columLabels) {
+            sticker = this.createSticker(this.board.columLabels[i], coordinates)
             this.widgets.push(sticker)
+            coordinates.x = (coordinates.x + 500)
         }
         this.renderWidgets()
     }
 
-    private createSticker(stickerText: string) {
+    private createSticker(stickerText: string, coordinates: { x: number, y: number} ) {
         return {
             type: 'STICKER',
             text: stickerText,
+            x: coordinates.x,
+            y: coordinates.y
           }
     }
 

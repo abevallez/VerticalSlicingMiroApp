@@ -3,6 +3,7 @@
  */
  declare global {
   let miro: SDK.Root;
+  let widget: SDK.IWidget
 }
 
 export {};
@@ -14,7 +15,7 @@ export {};
  * The [[Root]] interface contains the SDK main commands and is a good starting point.
  *
  */
-export declare namespace SDK {
+declare namespace SDK {
   /**
    * This is the same **`window.miro`** Object and will be your main entry point to the SDK methods.
    *
