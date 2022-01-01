@@ -1,22 +1,19 @@
 import { mockDeep, mockReset } from 'jest-mock-extended';
-import { Board } from '../src/Board';
-import { TemplateBuilder } from '../src/TemplateBuilder';
+import { Template } from '../src/Template';
 import { SDK } from '../typings/miro'
 
 describe('tests TemplateBuilder', () => {
 
-    let templateBuilder: TemplateBuilder
+    let template: Template
     const miroSDKMock = mockDeep<SDK.Root>()
-    let board: Board
 
     beforeEach(() => {
-        board = new Board()
-        templateBuilder = new TemplateBuilder(board, miroSDKMock)
+        template = new Template(miroSDKMock)
         mockReset(miroSDKMock)
     })
 
     test('Should create a row of three stickers', () => {
-        templateBuilder.build()
+        template.build()
         const widgetsExpected = [
             {
                 type: 'STICKER',
