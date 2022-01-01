@@ -1,8 +1,9 @@
 import { mock, mockDeep, mockReset } from "jest-mock-extended"
 import { CardCreatorFromSlice } from "../src/CardCreatorFromSlice"
+import { SDK } from '../typings/miro'
 
 describe('test CardCreatorFromSlice', () => {
-    const miroSDKMock = mockDeep<typeof miro>()
+    const miroSDKMock = mockDeep<SDK.Root>()
 
     beforeEach(() => {
         mockReset(miroSDKMock)
@@ -14,7 +15,7 @@ describe('test CardCreatorFromSlice', () => {
             type: 'CARD',
             title: 'Slice'
         }
-        const widgetMocked = mock<typeof widget>()
+        const widgetMocked = mock<SDK.ICardWidget>()
         miroSDKMock.board.selection.get.mockResolvedValue([widgetMocked])
 
         await cardCreator.createCard()

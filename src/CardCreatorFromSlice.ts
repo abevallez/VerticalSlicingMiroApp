@@ -1,7 +1,9 @@
-export class CardCreatorFromSlice {    
-    protected miroSDK: typeof miro
+import { SDK } from '../typings/miro'
 
-    constructor(miroSDK: typeof miro) {
+export class CardCreatorFromSlice {    
+    protected miroSDK: SDK.Root
+
+    constructor(miroSDK: SDK.Root) {
         this.miroSDK = miroSDK
     }
 

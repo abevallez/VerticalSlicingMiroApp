@@ -1,11 +1,12 @@
 import { Board } from "./Board";
+import { SDK } from '../typings/miro'
 
 export class TemplateBuilder {
-    protected miroSDK: typeof miro
+    protected miroSDK: SDK.Root
     protected board: Board
     protected widgets: Array<{type: string, text: string}> = []
 
-    constructor(board: Board, miroSDK: typeof miro) {
+    constructor(board: Board, miroSDK: SDK.Root) {
         this.board = board
         this.miroSDK = miroSDK
     }
@@ -29,7 +30,7 @@ export class TemplateBuilder {
             type: 'STICKER',
             text: stickerText,
             x: coordinates.x,
-            y: coordinates.y
+            y: coordinates.y,
           }
     }
 

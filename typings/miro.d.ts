@@ -3,7 +3,6 @@
  */
  declare global {
   let miro: SDK.Root;
-  let widget: SDK.IWidget
 }
 
 export {};
@@ -1515,7 +1514,7 @@ declare namespace SDK {
   /**
    * @category Widgets Manipulation
    */
-  interface IStickerWidget extends IWidget {
+  export interface IStickerWidget extends IWidget {
     type: 'STICKER';
     x: number;
     y: number;
@@ -2091,3 +2090,6 @@ declare namespace SDK {
    */
   type WidgetToBeCreated = {type: string; [index: string]: any};
 }
+
+export { SDK };
+

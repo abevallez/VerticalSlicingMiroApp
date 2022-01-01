@@ -1,11 +1,12 @@
 import { mockDeep, mockReset } from 'jest-mock-extended';
 import { Board } from '../src/Board';
 import { TemplateBuilder } from '../src/TemplateBuilder';
+import { SDK } from '../typings/miro'
 
 describe('tests TemplateBuilder', () => {
 
     let templateBuilder: TemplateBuilder
-    const miroSDKMock = mockDeep<typeof miro>()
+    const miroSDKMock = mockDeep<SDK.Root>()
     let board: Board
 
     beforeEach(() => {
