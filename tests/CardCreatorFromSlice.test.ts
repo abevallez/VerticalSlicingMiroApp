@@ -39,7 +39,7 @@ describe("test CardCreatorFromSlice", () => {
     const cardExpected = {
       type: "CARD",
       title: stickerWidgetMocked.text,
-      description: stickerWidgetMocked.text
+      description: "<ul><li>" + stickerWidgetMocked.text + "</li></ul>"
     };
     miroSDKMock.board.selection.get.mockResolvedValue([stickerWidgetMocked]);
 
@@ -47,9 +47,10 @@ describe("test CardCreatorFromSlice", () => {
     expect(miroSDKMock.board.widgets.create).toBeCalledWith(cardExpected);
   });
 
-  test('Should create a card where description is the content of stickers selected', async() => {
+  test('Should create a card where description is the content of stickers selected in bullet points', async() => {
     const secondStickerWidgetMocked: SDK.IStickerWidget = mockStickerWidget();
-    const description = stickerWidgetMocked.text + secondStickerWidgetMocked.text 
+    const description = "<ul><li>" + stickerWidgetMocked.text + "</li>" 
+    + "<li>" + secondStickerWidgetMocked.text + "</li></ul>" 
     const cardExpected = {
     type: "CARD",
     title: "sticker content",

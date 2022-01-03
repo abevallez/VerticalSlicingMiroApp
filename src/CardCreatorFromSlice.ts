@@ -37,11 +37,12 @@ export class CardCreatorFromSlice {
   }
 
   protected createDescriptionFromStickersContent(stickers: any[]): string {
-      let description = ''
+      let description = '<ul>'
       for (const sticker of stickers) {
-        description += sticker.text
+        description += "<li>" + sticker.text + "</li>"
+        console.log(description)
       }
-
+      description += "</ul>"
       return description
   }
 }
