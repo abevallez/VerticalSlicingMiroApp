@@ -14,6 +14,7 @@ export class CardCreatorFromSlice {
       this.miroSDK.board.widgets.create({
         type: "CARD",
         title: this.titleCardWith(firstSticker),
+        description: this.createDescriptionFromStickersContent(selectedWidgets)
       });
     } else {
       this.miroSDK.showErrorNotification("No stickers selected");
@@ -33,5 +34,14 @@ export class CardCreatorFromSlice {
   protected titleCardWith(sticker: any) {
       const sticker2: SDK.IStickerWidget = sticker
       return sticker2.text
+  }
+
+  protected createDescriptionFromStickersContent(stickers: any[]): string {
+      let description = ''
+      for (const sticker of stickers) {
+        description += sticker.text
+      }
+
+      return description
   }
 }
