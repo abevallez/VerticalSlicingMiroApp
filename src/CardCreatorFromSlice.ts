@@ -9,19 +9,29 @@ export class CardCreatorFromSlice {
 
   public async createCard() {
     const selectedWidgets: SDK.IWidget[] = await this.miroSDK.board.selection.get();
-    if (typeof selectedWidgets !== "undefined" 
-    && selectedWidgets.length > 0 
-    && selectedWidgets.every(this.areAllStickers)) { 
+    if (this.areStickerSelected(selectedWidgets)) { 
+      const firstSticker = selectedWidgets[0]
       this.miroSDK.board.widgets.create({
         type: "CARD",
-        title: "Slice",
+        title: this.titleCardWith(firstSticker),
       });
     } else {
       this.miroSDK.showErrorNotification("No stickers selected");
     }
   }
 
+  protected areStickerSelected(selectedWidgets: SDK.IWidget[]) {
+      return typeof selectedWidgets !== "undefined" 
+      && selectedWidgets.length > 0 
+      && selectedWidgets.every(this.areAllStickers)
+  }
+
   protected areAllStickers(element: any) {
       return (element.type == 'STICKER' || element.type == 'sticker')
+  }
+
+  protected titleCardWith(sticker: any) {
+      const sticker2: SDK.IStickerWidget = sticker
+      return sticker2.text
   }
 }
