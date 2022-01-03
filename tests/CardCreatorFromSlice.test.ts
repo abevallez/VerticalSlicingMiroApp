@@ -15,8 +15,9 @@ describe('test CardCreatorFromSlice', () => {
             type: 'CARD',
             title: 'Slice'
         }
-        const widgetMocked = mock<SDK.ICardWidget>()
-        miroSDKMock.board.selection.get.mockResolvedValue([widgetMocked])
+        const widgetStickerMocked = mock<SDK.IStickerWidget>()
+        widgetStickerMocked.type = 'STICKER'
+        miroSDKMock.board.selection.get.mockResolvedValue([widgetStickerMocked])
 
         await cardCreator.createCard()
         expect(miroSDKMock.board.widgets.create).toBeCalledTimes(1)
@@ -26,7 +27,8 @@ describe('test CardCreatorFromSlice', () => {
 
     test('Should dont create a card when no sticker was selected', async () => {
         const cardCreator: CardCreatorFromSlice = new CardCreatorFromSlice(miroSDKMock)
-        miroSDKMock.board.selection.get.mockResolvedValue([])
+        const widgeNotStickertMocked = mock<SDK.IShapeWidget>()
+        miroSDKMock.board.selection.get.mockResolvedValue([widgeNotStickertMocked])
 
         await cardCreator.createCard()
         expect(miroSDKMock.board.widgets.create).toBeCalledTimes(0)
@@ -34,8 +36,9 @@ describe('test CardCreatorFromSlice', () => {
 
     test('Should show a notification when no sticker was selected', async () => {
         const cardCreator: CardCreatorFromSlice = new CardCreatorFromSlice(miroSDKMock)
-        miroSDKMock.board.selection.get.mockResolvedValue([])
-
+        const widgeNotStickertMocked = mock<SDK.IShapeWidget>()
+        miroSDKMock.board.selection.get.mockResolvedValue([widgeNotStickertMocked])
+       
         await cardCreator.createCard()
         expect(miroSDKMock.showErrorNotification).toBeCalledTimes(1)
     })

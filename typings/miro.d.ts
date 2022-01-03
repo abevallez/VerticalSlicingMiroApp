@@ -5,8 +5,6 @@
   let miro: SDK.Root;
 }
 
-export {};
-
 /**
  * Here you will find a full reference to all publicly available methods in
  * the Miro SDK for web plugins development.
