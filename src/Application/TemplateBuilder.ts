@@ -1,4 +1,4 @@
-import { SDK } from "../typings/miro";
+import { SDK } from "../../typings/miro";
 
 export class TemplateBuilder {
   protected miroSDK: SDK.Root;
