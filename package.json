@@ -9,7 +9,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "mirotone": "2.0.5"
+    "mirotone": "^2.0.5"
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",

@@ -1,4 +1,4 @@
-describe('tests CreateCardForm', () => {
+describe('tests fill form to create a card', () => {
     
     test('Should fill title with title of first sticker selected"', async () => {
     const cardExpected = {
