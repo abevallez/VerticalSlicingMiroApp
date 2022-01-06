@@ -1,17 +1,17 @@
+import { SDK } from "../../typings/miro"
+
 export class CardCreator {
-    protected _title: string
-    protected _description: string
+    protected miroSDK
 
-    constructor(title: string, description: string) {
-        this._title = title
-        this._description = description
+    constructor(miroSDK: SDK.Root) {
+        this.miroSDK = miroSDK
     }
 
-    public get title(): string {
-        return this._title 
-    }
-
-    public get description(): string {
-        return this._description
+    public createCard(title: string, description: string) {
+        this.miroSDK.board.widgets.create({
+            type: 'CARD',
+            title: title,
+            description: description
+        })  
     }
 }
