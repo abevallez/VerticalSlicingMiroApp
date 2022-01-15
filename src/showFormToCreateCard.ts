@@ -3,7 +3,7 @@ import { SDK } from '../typings/miro';
 export async function showFormToCreateCard(miroSDK: SDK.Root) {
   const selectedWidgets: SDK.IWidget[] = await miroSDK.board.selection.get();
   if (areStickersSelected(selectedWidgets)) {
-    miroSDK.board.ui.openLeftSidebar('../sidebar_form.html');
+    await miroSDK.board.ui.openModal('../sidebar_form.html');
   } else {
     miroSDK.showErrorNotification("No stickers selected");
   }

@@ -16,16 +16,16 @@ describe('tests show form when sticker selected', () => {
 
     await showFormToCreateCard(miroSDKMock);
     expect(miroSDKMock.showErrorNotification).toBeCalledTimes(1);
-    });
+  });
 
-    test("Should render sidebar when stickers are selected", async() => {
+  test("Should render form when stickers are selected", async() => {
     miroSDKMock.board.selection.get.mockResolvedValue([stickerWidgetMocked]);
 
     await showFormToCreateCard(miroSDKMock);
-    expect(miroSDKMock.board.ui.openLeftSidebar).toBeCalledTimes(1);
-    })
+    expect(miroSDKMock.board.ui.openModal).toBeCalledTimes(1);
+  })
 
-    function mockStickerWidget(): SDK.IStickerWidget{
+  function mockStickerWidget(): SDK.IStickerWidget{
     const stickerWidgetMocked = mock<SDK.IStickerWidget>();
     stickerWidgetMocked.type = "STICKER";
     stickerWidgetMocked.text = "sticker content";

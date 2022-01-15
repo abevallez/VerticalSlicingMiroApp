@@ -1,15 +1,15 @@
+import { mock, mockDeep } from "jest-mock-extended";
+import { SDK } from "../typings/miro";
+
 describe('tests fill form to create a card', () => {
     
     test('Should fill title with title of first sticker selected"', async () => {
-    const cardExpected = {
-      type: "CARD",
-      title: stickerWidgetMocked.text,
-      description: "<ul><li>" + stickerWidgetMocked.text + "</li></ul>"
-    };
-    miroSDKMock.board.selection.get.mockResolvedValue([stickerWidgetMocked]);
+      const miroSDKMock = mockDeep<SDK.Root>();
+      const documentMock = mockDeep(document)
+      const stickerWidgetMocked = mockStickerWidget()
+      miroSDKMock.board.selection.get.mockResolvedValue([stickerWidgetMocked]);
 
-    await cardCreator.createCard();
-    expect(miroSDKMock.board.widgets.create).toBeCalledWith(cardExpected);
+      expect(document.getElementById('title').textContent).toBeCalledWith(cardExpected);
   });
 
   test('Should fill description with stickers selected as bullet points', async() => {
@@ -36,4 +36,12 @@ describe('tests fill form to create a card', () => {
     await cardCreator.createCard();
     expect(miroSDKMock.board.widgets.create).toBeCalledTimes(1);
   });
+
+  function mockStickerWidget(): SDK.IStickerWidget{
+    const stickerWidgetMocked = mock<SDK.IStickerWidget>();
+    stickerWidgetMocked.type = "STICKER";
+    stickerWidgetMocked.text = "sticker content";
+
+    return stickerWidgetMocked
+  }
 })
