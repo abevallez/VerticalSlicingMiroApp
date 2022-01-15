@@ -1,5 +1,5 @@
 import { SDK } from "../typings/miro";
-import { CardCreator } from "./Application/CardCreator"
+import { Card } from "./Application/Card"
 
 async function init() {
     await fillInputsWithFirstStickerSelectedFields()
@@ -15,8 +15,8 @@ async function fillInputsWithFirstStickerSelectedFields() {
 function createCardFromStickerSelected() {
     const title = document.getElementById('title').value
     const description = document.getElementById('description').value
-    const cardCreator = new CardCreator(miro)
-    cardCreator.createCard(title, description)
+    const card = new Card(miro, title, description)
+    card.render()
     miro.board.ui.closeModal()
 }
 
