@@ -2,12 +2,12 @@ import { SDK } from "../typings/miro";
 import { Card } from "./Domain/Card"
 
 async function init() {
-    await fillInputsWithFirstStickerSelectedFields()
+    const selectedStickers: SDK.IWidget[] = await miro.board.selection.get()
+    await fillInputsWithStickersFields(selectedStickers)
     document.getElementById("create-card-button").addEventListener("click", createCardFromStickerSelected);
 }
 
-async function fillInputsWithFirstStickerSelectedFields() {
-    const selectedStickers: SDK.IWidget[] = await miro.board.selection.get()
+export async function fillInputsWithStickersFields(selectedStickers: SDK.IWidget[]) {
     document.getElementById('title').value = getTitleFromSticker(selectedStickers[0])
     document.getElementById('description').value = getDescriptionFromStickers(selectedStickers)
 }
