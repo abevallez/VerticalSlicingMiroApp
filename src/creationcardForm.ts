@@ -1,5 +1,5 @@
 import { SDK } from "../typings/miro";
-import { Card } from "./Application/Card"
+import { Card } from "./Domain/Card"
 
 async function init() {
     await fillInputsWithFirstStickerSelectedFields()
