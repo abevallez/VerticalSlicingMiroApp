@@ -1,7 +1,7 @@
 import { SDK } from "../../typings/miro"
 
 export class Card {
-    protected miroSDK
+    protected miroSDK: SDK.Root
     public readonly title: string
     public readonly description: string
 
