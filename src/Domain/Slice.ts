@@ -3,14 +3,15 @@ import { SDK } from "../../typings/miro";
 export class Slice{
     public readonly widgets: SDK.IStickerWidget[]
     protected miroSDK: SDK.Root
+    public readonly name: string
 
     constructor(widgets: SDK.IStickerWidget[], miroSDK: SDK.Root) {
         this.widgets = widgets
         this.miroSDK = miroSDK
-        this.colorWidgets()
+        this.name = widgets[0].text
     }
 
-    private colorWidgets() {
+    public colorWidgets() {
         let sticker: SDK.IStickerWidget
         for (sticker of this.widgets) {
             console.log(sticker.id)
