@@ -1,4 +1,4 @@
-import { SDK } from '../typings/miro';
+import { SDK } from '../../typings/miro';
 
 export async function showFormToCreateCard(miroSDK: SDK.Root) {
   const selectedWidgets: SDK.IWidget[] = await miroSDK.board.selection.get();

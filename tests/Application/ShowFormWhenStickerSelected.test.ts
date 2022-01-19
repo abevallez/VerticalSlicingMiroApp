@@ -1,6 +1,6 @@
 import { mock, mockDeep, mockReset } from "jest-mock-extended";
-import { showFormToCreateCard } from "../src/showFormToCreateCard";
-import { SDK } from "../typings/miro";
+import { showFormToCreateCard } from "../../src/Application/showFormToCreateCard";
+import { SDK } from "../../typings/miro";
 
 describe('tests show form when sticker selected', () => {
   const miroSDKMock = mockDeep<SDK.Root>();

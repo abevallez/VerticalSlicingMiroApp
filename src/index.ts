@@ -1,7 +1,7 @@
 import toolbarIcon from './assets/toolbaricon.svg?raw';
 import libraryIcon from './assets/libraryicon.svg?raw';
 import { TemplateBuilder } from './Application/TemplateBuilder';
-import { showFormToCreateCard } from './showFormToCreateCard';
+import { showFormToCreateCard } from './Application/showFormToCreateCard';
 
 miro.onReady(() => {
   miro.initialize({

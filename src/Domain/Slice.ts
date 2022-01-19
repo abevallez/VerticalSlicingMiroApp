@@ -3,12 +3,12 @@ import { SDK } from "../../typings/miro";
 export class Slice{
     public readonly widgets: SDK.IStickerWidget[]
     protected miroSDK: SDK.Root
-    public readonly name: string
+    protected _name: string
 
     constructor(widgets: SDK.IStickerWidget[], miroSDK: SDK.Root) {
         this.widgets = widgets
         this.miroSDK = miroSDK
-        this.name = widgets[0].text
+        this._name = widgets[0].plainText
     }
 
     public colorWidgets() {
@@ -26,5 +26,21 @@ export class Slice{
                 }
             })
         }
+    }
+
+    public tag(tagName: string, tagColor: string) {
+        this.miroSDK.board.tags.create({
+            title: tagName,
+            color: tagColor, 
+            widgetIds: this.widgets
+        })
+    }
+
+    set name(name: string) {
+        this._name = name
+    }
+
+    get name() {
+        return this._name
     }
 }

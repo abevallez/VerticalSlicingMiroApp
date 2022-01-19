@@ -57,10 +57,28 @@ describe('tests Slice', () => {
         expect(slice.name).toBe(widgets[0].text)
     })
 
+    test('Create a tag for widgets in slice', () => {
+        const tagName = 'tag_name'
+        const tagColor = '#FFFFFF'
+        slice.tag(tagName, tagColor)
+        expect(miroSDKMock.board.tags.create).toBeCalledTimes(1)
+        expect(miroSDKMock.board.tags.create).toBeCalledWith({
+            title: tagName,
+            color: tagColor,
+            widgetIds: widgets
+        })
+    })
+
+    test('Name should be changed', () => {
+        const newName = 'another name'
+        slice.name = newName
+        expect(slice.name).toBe(newName)
+    })
+
     function mockStickerWidget(): SDK.IStickerWidget{
         const stickerWidgetMocked = mock<SDK.IStickerWidget>();
         stickerWidgetMocked.type = "STICKER";
-        stickerWidgetMocked.text = "sticker content";
+        stickerWidgetMocked.plainText = "sticker content";
         stickerWidgetMocked.style.stickerBackgroundColor = '#f5d128'
     
         return stickerWidgetMocked
