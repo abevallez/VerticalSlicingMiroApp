@@ -24,7 +24,7 @@ describe('tests Slice', () => {
         slice = new Slice(widgets, miroSDKMock);
       });
 
-    test('slices is created with widgets', () => {
+    test('slice is created with widgets', () => {
         expect(slice.widgets).toBe(widgets)
     })
 
@@ -54,7 +54,7 @@ describe('tests Slice', () => {
     })
 
     test('Slice has the first widget name when is created', () => {
-        expect(slice.name).toBe(widgets[0].text)
+        expect(slice.name).toBe(widgets[0].plainText)
     })
 
     test('Create a tag for widgets in slice', () => {

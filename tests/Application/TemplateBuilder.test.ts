@@ -47,7 +47,24 @@ describe('tests TemplateBuilder', () => {
             }
         ]
 
-        expect(miroSDKMock.board.widgets.create).toBeCalledTimes(1)
         expect(miroSDKMock.board.widgets.create).toBeCalledWith(widgetsExpected)
+    })
+
+    test('Should create frame', () => {
+      const miroSDKMock = mockDeep<SDK.Root>()
+      const templateBuilder: TemplateBuilder = new TemplateBuilder(miroSDKMock)
+      templateBuilder.build()
+      const widgetsExpected = [
+        {
+          type: 'FRAME',
+          title: 'Vertical Slicing',
+          x: 300,
+          y: 150,
+          width: 1000,
+          height: 500,
+        }
+      ]
+
+      expect(miroSDKMock.board.widgets.create).toBeCalledWith(widgetsExpected)
     })
 });

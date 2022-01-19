@@ -6,7 +6,7 @@ export class TemplateBuilder {
   public readonly rows = 1
   static readonly RECTANGLE = 1
 
-  public readonly columStikersLabels = [
+  public readonly columStickersLabels = [
       {
           type: 'SHAPE',
           text: 'Activities',
@@ -45,11 +45,23 @@ export class TemplateBuilder {
       }
   ]
 
+  public readonly templateFrame = [
+    {
+      type: 'FRAME',
+      title: 'Vertical Slicing',
+      x: 300,
+      y: 150,
+      width: 1000,
+      height: 500,
+    },
+  ]
+
   constructor(miroSDK: SDK.Root) {
     this.miroSDK = miroSDK;
   }
 
   public build() {
-    this.miroSDK.board.widgets.create(this.columStikersLabels);
+    this.miroSDK.board.widgets.create(this.templateFrame)
+    this.miroSDK.board.widgets.create(this.columStickersLabels);
   }
 }
