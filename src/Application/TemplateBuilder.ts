@@ -60,8 +60,9 @@ export class TemplateBuilder {
     {
       type: 'IMAGE',
       url: 'https://miro.medium.com/max/952/1*ovDaIByqCJLsp2b45suvYQ.png',
-      x: 350,
-      y: 450
+      x: 330,
+      y: 520,
+      scale: 2
     }
 
   constructor(miroSDK: SDK.Root) {
