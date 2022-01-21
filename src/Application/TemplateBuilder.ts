@@ -1,4 +1,5 @@
 import { SDK } from "../../typings/miro";
+import exampleImageUrl from "../assets/example.png"
 
 export class TemplateBuilder {
   protected miroSDK: SDK.Root;
@@ -17,51 +18,59 @@ export class TemplateBuilder {
           style: {
             borderWidth: 0,
             backgroundColor: '#A6CCF5'
-          },
+          }
       },
       {
           type: 'SHAPE',
           text: 'Complexities',
-          x: 300,
+          x: 201,
           y: 0,
-          width: 200,
+          width: 180,
           height: 100,
           style: {
             borderWidth: 0,
             backgroundColor: '#F5A6CC'
-          },
+          }
       },
       {
           type: 'SHAPE',
           text: 'Variations',
-          x: 600,
+          x: 550,
           y: 0,
-          width: 200,
+          width: 500,
           height: 100,
           style: {
             borderWidth: 0,
             backgroundColor: '#CCF5A6'
-          },
+          }
       }
   ]
 
-  public readonly templateFrame = [
+  public readonly templateFrame =
     {
       type: 'FRAME',
       title: 'Vertical Slicing',
-      x: 300,
-      y: 150,
+      x: 350,
+      y: 450,
       width: 1000,
-      height: 500,
-    },
-  ]
+      height: 1100,
+    }
+
+  public readonly exampleImage =
+    {
+      type: 'IMAGE',
+      url: exampleImageUrl,
+      x: 350,
+      y: 450
+    }
 
   constructor(miroSDK: SDK.Root) {
     this.miroSDK = miroSDK;
   }
 
-  public build() {
-    this.miroSDK.board.widgets.create(this.templateFrame)
-    this.miroSDK.board.widgets.create(this.columStickersLabels);
+  public async build() {
+    await this.miroSDK.board.widgets.create(this.templateFrame)
+    await this.miroSDK.board.widgets.create(this.columStickersLabels);
+    await this.miroSDK.board.widgets.create(this.exampleImage);
   }
 }
