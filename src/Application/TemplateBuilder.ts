@@ -1,5 +1,4 @@
 import { SDK } from "../../typings/miro";
-import exampleImageUrl from "../assets/example.png"
 
 export class TemplateBuilder {
   protected miroSDK: SDK.Root;
@@ -7,7 +6,7 @@ export class TemplateBuilder {
   public readonly rows = 1
   static readonly RECTANGLE = 1
 
-  public readonly columStickersLabels = [
+  public readonly activitiesShape =
       {
           type: 'SHAPE',
           text: 'Activities',
@@ -19,7 +18,8 @@ export class TemplateBuilder {
             borderWidth: 0,
             backgroundColor: '#A6CCF5'
           }
-      },
+      }
+  public readonly complexitiesShape =
       {
           type: 'SHAPE',
           text: 'Complexities',
@@ -31,7 +31,8 @@ export class TemplateBuilder {
             borderWidth: 0,
             backgroundColor: '#F5A6CC'
           }
-      },
+      }
+  public readonly variationsShape = 
       {
           type: 'SHAPE',
           text: 'Variations',
@@ -44,7 +45,6 @@ export class TemplateBuilder {
             backgroundColor: '#CCF5A6'
           }
       }
-  ]
 
   public readonly templateFrame =
     {
@@ -59,7 +59,7 @@ export class TemplateBuilder {
   public readonly exampleImage =
     {
       type: 'IMAGE',
-      url: exampleImageUrl,
+      url: 'https://miro.medium.com/max/952/1*ovDaIByqCJLsp2b45suvYQ.png',
       x: 350,
       y: 450
     }
@@ -69,8 +69,12 @@ export class TemplateBuilder {
   }
 
   public async build() {
-    await this.miroSDK.board.widgets.create(this.templateFrame)
-    await this.miroSDK.board.widgets.create(this.columStickersLabels);
-    await this.miroSDK.board.widgets.create(this.exampleImage);
+    await this.miroSDK.board.widgets.create([
+      this.templateFrame,
+      this.activitiesShape,
+      this.complexitiesShape,
+      this.variationsShape,
+      this.exampleImage
+    ])
   }
 }
