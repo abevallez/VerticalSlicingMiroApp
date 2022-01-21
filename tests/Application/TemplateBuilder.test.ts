@@ -8,10 +8,10 @@ describe('tests TemplateBuilder', () => {
     {
       type: 'FRAME',
       title: 'Vertical Slicing',
-      x: 350,
+      x: 0,
       y: 450,
-      width: 1000,
-      height: 1100,
+      width: 1700,
+      height: 1200,
     },
     {
       type: 'SHAPE',
@@ -53,7 +53,15 @@ describe('tests TemplateBuilder', () => {
       type: 'IMAGE',
       url: 'https://miro.medium.com/max/952/1*ovDaIByqCJLsp2b45suvYQ.png',
       x: 330,
-      y: 520
+      y: 520,
+      scale: 2
+    },
+    {
+      type: 'IMAGE',
+      url: 'https://miro.medium.com/max/1400/1*F9zP3SyfjgI-W4EyMCB-Dw.png',
+      x: -500,
+      y: 0,
+      scale: 0.5
     }
   ]
 
