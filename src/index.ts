@@ -1,5 +1,5 @@
-import toolbarIcon from './assets/toolbaricon.svg?raw';
-import libraryIcon from './assets/libraryicon.svg?raw';
+import vertical from './assets/vertical.svg?raw';
+import card from './assets/card.svg?raw';
 import { TemplateBuilder } from './Application/TemplateBuilder';
 import { showFormToCreateCard } from './Application/showFormToCreateCard';
 
@@ -8,15 +8,15 @@ miro.onReady(() => {
     extensionPoints: {
       toolbar: {
         title: 'Vertical Slicing App',
-        toolbarSvgIcon: toolbarIcon,
-        librarySvgIcon: libraryIcon,
+        toolbarSvgIcon: vertical,
+        librarySvgIcon: vertical,
         onClick: async () => {
           buildTemplate()
         },
       },
       bottomBar: {
         title: 'Create Card from Slice selected',
-        svgIcon: libraryIcon,
+        svgIcon: card,
         onClick: async () => {
           showFormToCreateCard(miro)
         },
