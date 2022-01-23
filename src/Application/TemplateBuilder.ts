@@ -68,6 +68,13 @@ export class TemplateBuilder {
     scale: 0.5
   }
 
+  public readonly blogLinks = {
+    type: 'TEXT',
+    text: 'https://abrahamvallez.medium.com/vertical-slicing-i-desaprende-lo-que-sabes-sobre-user-stories-y-pon-el-foco-en-desarrollo-b859c5827326',
+    x: -500,
+    y: 150
+  }
+
   constructor(miroSDK: SDK.Root) {
     this.miroSDK = miroSDK;
   }
@@ -79,7 +86,8 @@ export class TemplateBuilder {
       this.complexitiesShape,
       this.variationsShape,
       this.exampleImage,
-      this.slicingStepsImage
+      this.slicingStepsImage,
+      this.blogLinks
     ])
   }
 }

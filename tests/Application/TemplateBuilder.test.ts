@@ -62,6 +62,12 @@ describe('tests TemplateBuilder', () => {
       x: -500,
       y: 0,
       scale: 0.5
+    },
+    {
+      type: 'TEXT',
+      text: 'https://abrahamvallez.medium.com/vertical-slicing-i-desaprende-lo-que-sabes-sobre-user-stories-y-pon-el-foco-en-desarrollo-b859c5827326',
+      x: -500,
+      y: 150
     }
   ]
 
