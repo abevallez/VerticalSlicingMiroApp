@@ -1,3 +1,5 @@
+![build](https://github.com/abrahamvallez/VerticalSlicingMiroApp/actions/workflows/ci.yml/badge.svg)
+
 # Vertical Slicing Miro App
 
 This is a small app in order to help with vertical slicing. Follow the workshop created and explained in these posts
@@ -30,4 +32,3 @@ This is a small app in order to help with vertical slicing. Follow the workshop 
 6. A new Card will be created with the info. The stickers selected will have a tag with the slice name and will be in yellow color.
 
 ![VerticalSlicingTutorial](https://user-images.githubusercontent.com/6014261/150691233-c1ed87b0-9c03-43ce-bf0c-ded93a3d5959.gif)
-
