@@ -24,6 +24,8 @@ This is a small app in order to help with vertical slicing. Follow the workshop 
 - New template and task creation for the most technical variations
 
 ## How to use
+Install -> https://miro.com/oauth/authorize/?response_type=code&client_id=3458764515772543068&redirect_uri=%2Fconfirm-app-install%2F
+
 1. Click the button in the tool bar (left menu bar) and a template with examples will be created
 2. Delete the examples and refine your problem following the steps in the posts
 3. Select a group of variations (must be stickers)
